@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row header">
+        <div class="">
+            <div class="col-lg-10 col-sm-10"><a href="/" class="header-link" target="_self">Site</a></div>
+
+            <div class="col-lg-2 col-sm-2">not logged</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-sm-2 admin-menu-wrapper">
+
+            <ul class="admin-menu">
+                <li class="nav-section">Home</li>
+                <li class="nav-section">Video
+                    <ul>
+                        <li><a href="/admin/video/genres" class="nav-item">Жанры</a></li>
+                        <li><a href="/admin/video/actors" class="nav-item">Актеры</a></li>
+                        <li><a href="/admin/video/movies" class="nav-item">Фильмы</a></li>
+                    </ul>
+                </li>
+                <li class="nav-section">Resume</li>
+                <li class="nav-section">Portfolio</li>
+                <li class="nav-section">Blog</li>
+            </ul>
+        </div>
+        <div class="col-lg-10 content">
+            <ui-view></ui-view>
+        </div>
+    </div>
+</div>

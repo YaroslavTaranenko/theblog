@@ -1,0 +1,22 @@
+//
+   Created by yaroslav on 11/6/16.
+doctype html
+html(ng-app='myAdmin')
+    head
+        base(href="/")
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/admin.css')
+        link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+        script(src='//localhost:8082/livereload.js' type='text/javascript')
+        script(src="/javascripts/angular/angular.min.js")
+        script(src="/javascripts/angular-route/angular-route.min.js")
+        script(src="/javascripts/ng-file-upload/ng-file-upload-shim.min.js")
+        script(src="/javascripts/ng-file-upload/ng-file-upload.min.js")
+
+
+    body(ng-controller="adminCtrl")
+
+        carcas
+
+    script(src="/javascripts/app.admin.min.js")

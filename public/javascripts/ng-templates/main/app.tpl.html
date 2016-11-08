@@ -1,0 +1,35 @@
+<div class="top-header">
+    <div class="container">
+        <span class="top-header-item">
+            <i aria-hidden="aria-hidden" class="fa fa-phone"></i>&nbsp;+7 777 139 16 73
+        </span>
+        <span class="top-header-item">
+            <i aria-hidden="aria-hidden" class="fa fa-envelope-o"></i>
+            <a href="mailto:taranenkojaroslav@gmail.com">&nbsp; taranenkojaroslav@gmail.com</a>
+        </span>
+        <ul class="top-header-menu right">
+            <li><a href="/admin" target="_self">log in</a></li>
+        </ul>
+    </div>
+</div>
+<div id="header" scroll="scroll" ng-class="{min:boolChangeClass}">
+    <div class="container">
+        <a href="/" class="logo"></a>
+        <div class="header-menu right">
+            <ul ng-hide="showSearch">
+                <li><a href="/">Home</a></li>
+                <li><a href="/video">Video</a></li>
+                <li><a href="/resume">Resume</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li ng-click="focusSearch = true"><a href ng-click="showSearch = !showSearch"><i aria-hidden="aria-hidden" class="fa fa-search"></i></a></li>
+            </ul>
+            <form id="main-search-form" name="mainSearch" ng-show="showSearch">
+                <input type="text" placeholder="SEARCH..." focus-me="focusSearch" class="main-search-field"/>
+                <a ng-click="showSearch = !showSearch" href class="close-search"><i aria-hidden="aria-hidden" class="fa fa-times"></i></a>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="subheader"></div>
+<div ui-view></div>

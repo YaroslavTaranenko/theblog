@@ -1,0 +1,32 @@
+<!--div {{lastId}}-->
+<table>
+    <tr>
+        <th class="col-lg-1 col-sm-1">ID</th>
+        <th>Name</th>
+        <th class="col-lg-2 col-sm-2">Actions</th>
+    </tr>
+</table>
+<div class="table-wrapper">
+    <table>
+
+        <tr ng-repeat="t in tags">
+            <td class="col-lg-1 col-sm-1">{{t.id}}</td>
+            <td> <span ng-hide="editTag">{{t.title}}</span><span ng-show="editTag" class="input-table-wrapper">
+          <input type="text" ng-model="tmpTag"/><i aria-hidden="true" ng-click="editTag = ! editTag; tagCtrl.editTag(t.id, tmpTag)" class="fa fa-check pointer green m-l-5"></i><i aria-hidden="true" ng-click="editTag = ! editTag" class="fa fa-times pointer red m-l-5"></i></span></td>
+            <td class="col-lg-2 col-sm-2">
+                <button ng-click="editTag = ! editTag; tmpTag = t.title" class="btn">Edit</button>
+                <button ng-click="tagCtrl.deleteTag(t.id)" class="btn">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<button ng-click="tagCtrl.newTag()" class="btn">Добавить </button>
+<message></message>
+<div ng-show="tagCtrl.form.show" class="fon">
+    <div id="genre-form">
+        <div class="title">{{tagCtrl.form.title}}</div>
+        <input type="text" ng-model="tagCtrl.form.genre" class="col-sm-8"/><span>
+      <button ng-click="tagCtrl.form.ok()" class="btn">Ok</button>
+      <button ng-click="tagCtrl.form.cancel()" class="btn">Cancel</button></span>
+    </div>
+</div>

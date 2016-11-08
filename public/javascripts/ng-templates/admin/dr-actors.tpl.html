@@ -1,0 +1,31 @@
+<!--div {{lastId}}-->
+<div class="table-wrapper">
+    <table>
+        <tr>
+            <th class="col-sm-1">ID</th>
+            <th>Name</th>
+            <th>Last name</th>
+            <th class="col-sm-2">Actions</th>
+        </tr>
+        <tr ng-repeat="a in actors">
+            <td class="ta-center">{{a.id}}</td>
+            <td> <span ng-hide="editActor">{{a.first_name}}</span><span ng-show="editActor" class="input-table-wrapper">
+          <input type="text" ng-model="tmpFirst"/></span></td>
+            <td> <span ng-hide="editActor">{{a.last_name}}</span><span ng-show="editActor" class="input-table-wrapper">
+          <input type="text" ng-model="tmpLast"/></span></td>
+            <td> <span ng-hide="editActor">
+          <button ng-click="editActor = ! editActor; tmpFirst = a.first_name; tmpLast = a.last_name" class="btn">Edit</button>
+          <button ng-click="actorCtrl.deleteActor(a.id)" class="btn">Delete</button></span><span ng-show="editActor" class="input-table-wrapper">                   <i aria-hidden="true" ng-click="editActor = ! editActor; actorCtrl.editActor(a.id, tmpFirst, tmpLast)" class="fa fa-check pointer green m-l-5"></i><i aria-hidden="true" ng-click="editActor = ! editActor" class="fa fa-times pointer red m-l-5"></i></span></td>
+        </tr>
+    </table>
+</div>
+<button ng-click="actorCtrl.newActor()" class="btn">Добавить </button>
+<div ng-show="actorCtrl.form.show" class="fon">
+    <div id="actor-form">
+        <div class="title">{{actorCtrl.form.title}}</div>
+        <input type="text" ng-model="actorCtrl.form.first"/>
+        <input type="text" ng-model="actorCtrl.form.last"/><span>
+      <button ng-click="actorCtrl.form.ok()" class="btn">Ok</button>
+      <button ng-click="actorCtrl.form.cancel()" class="btn">Cancel</button></span>
+    </div>
+</div>

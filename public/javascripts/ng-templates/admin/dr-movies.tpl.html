@@ -1,0 +1,82 @@
+<!--div {{lastId}}-->
+<div class="table-wrapper">
+    <table>
+        <tr>
+            <th class="col-sm-1">ID</th>
+            <th>Title</th>
+            <th class="col-sm-1">IMDB</th>
+            <th class="col-sm-1">Kinopoisk</th>
+            <th class="col-sm-2">Actions</th>
+        </tr>
+        <tr ng-repeat="m in movies">
+            <td>{{m.id}}</td>
+            <td>{{m.title}}</td>
+            <td>{{m.imdb}}</td>
+            <td>{{m.kinopoisk}}</td>
+            <td>
+                <button ng-click="movieCtrl.editMovie(m)" class="btn">Edit</button>
+                <button ng-click="movieCtrl.deleteMovie(m.id)" class="btn">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<message>               </message>
+<button ng-click="movieCtrl.addMovie()" class="btn">Добавить</button>
+<div ng-show="movieCtrl.form.show" class="fon">
+    <form>
+        <div id="movie-form">
+            <div class="title">{{movieCtrl.form.header}}</div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-3 ">Заголовок</label>
+                    <input type="text" ng-model="movieCtrl.form.title" name="title" required="required" class="col-sm-8"/>
+                </div>
+                <div class="row">
+                    <label class="col-sm-3 ">Год</label>
+                    <input type="text" ng-model="movieCtrl.form.year" name="yesr" class="col-sm-8"/>
+                </div>
+                <div class="row">
+                    <label class="col-sm-3 ">Страна</label>
+                    <input type="text" ng-model="movieCtrl.form.country" name="country" class="col-sm-8"/>
+                </div>
+                <div class="row">
+                    <label class="col-sm-3 ">Режисер</label>
+                    <input type="text" ng-model="movieCtrl.form.director" name="director" class="col-sm-8"/>
+                </div>
+                <div class="row">
+                    <label class="col-sm-3 ">Изображение</label>
+                    <input type="text" ng-model="movieCtrl.form.image.name" class="col-sm-8"/>
+                </div>
+                <div class="row">
+                    <span class="col-sm-7">
+                        <input type="file" ngf-select="ngf-select" ng-model="movieCtrl.form.image" name="file"
+                               accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFile"
+                               class="img-btn iblock vt" class="col-sm-5"/>
+
+                    </span>
+                    <span class="image-preview col-sm-5">
+                        <img ng-if="!movieCtrl.form.image.name" height="100" ng-src="/images/movies/{{movieCtrl.form.image}}" tip="icon"/>
+                        <img ng-if="movieCtrl.form.image.name" height="100" ngf-thumbnail="movieCtrl.form.image"/>
+                    </span>
+                </div>
+                <div class="row">
+                    <label class="col-sm-3 ">Рейтинг IMDB</label>
+                    <input type="text" ng-model="movieCtrl.form.imdb" name="imdb" class="col-sm-8"/>
+                </div>
+                <div class="row">
+                    <label class="col-sm-3 ">Рейтинг Kinopoisk</label>
+                    <input type="text" ng-model="movieCtrl.form.kinopoisk" name="kinopoisk" class="col-sm-8"/>
+                </div>
+                <div class="row">
+                    <label class="col-sm-3 ">Описание</label>
+                    <input type="text" ng-model="movieCtrl.form.description" name="desc" class="col-sm-8"/>
+                </div>
+
+            </div>
+            <span>
+                <input type="submit" ng-click="movieCtrl.form.ok()" value="Ok" class="btn"/>
+                <button ng-click="movieCtrl.form.cancel()" class="btn">Cancel</button>
+            </span>
+        </div>
+    </form>
+</div>
