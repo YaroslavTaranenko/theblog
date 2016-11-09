@@ -18,7 +18,7 @@ router.post('/mysql', function(req, res, next){
     var connection = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
-        password : '1q2w',
+        password : '1q2wMy',
         database : 'myblog'
     });
 
@@ -33,7 +33,7 @@ router.post('/insert/tags', function(req, res, next){
     var con = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
-        password : '1q2w',
+        password : '1q2wMy',
         database : 'myblog',
         multipleStatements: true
     });
@@ -50,7 +50,7 @@ router.post('/delete/:table', function(req, res, next){
     var con = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
-        password : '1q2w',
+        password : '1q2wMy',
         database : 'myblog'
     });
 
@@ -70,7 +70,7 @@ router.post('/edit/:table', function(req, res, next){
     var con = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
-        password : '1q2w',
+        password : '1q2wMy',
         database : 'myblog'
     });
 
@@ -89,7 +89,7 @@ router.post('/insert/actors', function(req, res, next){
     var con = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
-        password : '1q2w',
+        password : '1q2wMy',
         database : 'myblog',
         multipleStatements: true
     });
@@ -106,7 +106,7 @@ router.post('/insert/movie', function(req, res, next){
     var con = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
-        password : '1q2w',
+        password : '1q2wMy',
         database : 'myblog',
         multipleStatements: true
     });

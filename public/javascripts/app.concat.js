@@ -2,7 +2,8 @@
  * Created by yaroslav on 11/5/16.
  */
 'use strict';
-var app = angular.module('MyApp', ['main.templates', 'ngAnimate', 'ngRoute', 'ui.router', 'admActors', 'admGenres', 'admMovies']);
+var app = angular.module('MyApp', ['main.templates', 'ngAnimate', 'ngRoute', 'ui.router', 'admActors',
+    'admGenres', 'admMovies', 'movies']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(true);
@@ -451,7 +452,31 @@ app.directive('updateTitle', ['$rootScope', '$timeout',
         };
     });
 
-})();;angular.module('main.templates', ['javascripts/ng-templates/main/app.tpl.html', 'javascripts/ng-templates/main/blog.tpl.html', 'javascripts/ng-templates/main/index.tpl.html', 'javascripts/ng-templates/main/portfolio.tpl.html', 'javascripts/ng-templates/main/resume.tpl.html', 'javascripts/ng-templates/main/video.tpl.html']);
+})();;/**
+ * Created by yaroslav on 11/8/16.
+ */
+'use strict';
+var app = angular.module('movies', []);
+
+app.controller('movieCtrl', function($http, $scope){
+    //alert('movies');
+    this.getMovies = function(){
+        $http.post('/dbworker/mysql', {query: "SELECT * FROM video;"})
+            .then(
+                function(res){$scope.movies = res.data.rows; },
+                function(err){$scope.popShow(err.status + " - " + err.statusText); }
+            );
+    };
+    this.getMovies();
+});
+
+app.directive('movieCard', function(){
+    return{
+        restrict: "E",
+        scope: {movie: '='},
+        template: ''
+    };
+});;angular.module('main.templates', ['javascripts/ng-templates/main/app.tpl.html', 'javascripts/ng-templates/main/blog.tpl.html', 'javascripts/ng-templates/main/index.tpl.html', 'javascripts/ng-templates/main/portfolio.tpl.html', 'javascripts/ng-templates/main/resume.tpl.html', 'javascripts/ng-templates/main/video.tpl.html']);
 
 angular.module("javascripts/ng-templates/main/app.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("javascripts/ng-templates/main/app.tpl.html",
@@ -514,5 +539,29 @@ angular.module("javascripts/ng-templates/main/resume.tpl.html", []).run(["$templ
 
 angular.module("javascripts/ng-templates/main/video.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("javascripts/ng-templates/main/video.tpl.html",
-    "<h1>Video</h1>");
+    "<div class=\"container\" ng-controller=\"movieCtrl as mc\">\n" +
+    "    <row>\n" +
+    "        <h1>Video</h1>\n" +
+    "    </row>\n" +
+    "    <div id=\"movie-catalog\">\n" +
+    "        <div class=\"row\" ng-repeat=\"m in movies\">\n" +
+    "            <div class=\"col-sm-2\">\n" +
+    "                <img ng-src=\"m.image\" class=\"movie-image\" />\n" +
+    "            </div>\n" +
+    "            <div class=\"col-sm-10\">\n" +
+    "                <div class=\"movie-title\">{{m.title}}</div>\n" +
+    "                <div class=\"movie-prop\">{{m.year}}</div>\n" +
+    "                <div class=\"movie-prop\">{{m.country}}</div>\n" +
+    "                <div class=\"movie-prop\">{{m.director}}</div>\n" +
+    "                <div class=\"movie-rating\">{{m.imdb}}</div>\n" +
+    "                <div class=\"movie-rating\">{{m.kinopoisk}}</div>\n" +
+    "                <div class=\"movie-desc\">{{m.description}}</div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "</div>\n" +
+    "\n" +
+    "\n" +
+    "");
 }]);

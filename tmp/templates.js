@@ -61,5 +61,29 @@ angular.module("javascripts/ng-templates/main/resume.tpl.html", []).run(["$templ
 
 angular.module("javascripts/ng-templates/main/video.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("javascripts/ng-templates/main/video.tpl.html",
-    "<h1>Video</h1>");
+    "<div class=\"container\" ng-controller=\"movieCtrl as mc\">\n" +
+    "    <row>\n" +
+    "        <h1>Video</h1>\n" +
+    "    </row>\n" +
+    "    <div id=\"movie-catalog\">\n" +
+    "        <div class=\"row\" ng-repeat=\"m in movies\">\n" +
+    "            <div class=\"col-sm-2\">\n" +
+    "                <img ng-src=\"m.image\" class=\"movie-image\" />\n" +
+    "            </div>\n" +
+    "            <div class=\"col-sm-10\">\n" +
+    "                <div class=\"movie-title\">{{m.title}}</div>\n" +
+    "                <div class=\"movie-prop\">{{m.year}}</div>\n" +
+    "                <div class=\"movie-prop\">{{m.country}}</div>\n" +
+    "                <div class=\"movie-prop\">{{m.director}}</div>\n" +
+    "                <div class=\"movie-rating\">{{m.imdb}}</div>\n" +
+    "                <div class=\"movie-rating\">{{m.kinopoisk}}</div>\n" +
+    "                <div class=\"movie-desc\">{{m.description}}</div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "</div>\n" +
+    "\n" +
+    "\n" +
+    "");
 }]);

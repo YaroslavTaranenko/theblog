@@ -1,1 +1,24 @@
-<h1>Video</h1>
+<div class="container" ng-controller="movieCtrl as mc">
+    <row>
+        <h1>Video</h1>
+    </row>
+    <div id="movie-catalog">
+        <div class="row" ng-repeat="m in movies">
+            <div class="col-sm-2">
+                <img ng-src="m.image" class="movie-image" />
+            </div>
+            <div class="col-sm-10">
+                <div class="movie-title">{{m.title}}</div>
+                <div class="movie-prop">{{m.year}}</div>
+                <div class="movie-prop">{{m.country}}</div>
+                <div class="movie-prop">{{m.director}}</div>
+                <div class="movie-rating">{{m.imdb}}</div>
+                <div class="movie-rating">{{m.kinopoisk}}</div>
+                <div class="movie-desc">{{m.description}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

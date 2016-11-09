@@ -2,7 +2,8 @@
  * Created by yaroslav on 11/5/16.
  */
 'use strict';
-var app = angular.module('MyApp', ['main.templates', 'ngAnimate', 'ngRoute', 'ui.router', 'admActors', 'admGenres', 'admMovies']);
+var app = angular.module('MyApp', ['main.templates', 'ngAnimate', 'ngRoute', 'ui.router', 'admActors',
+    'admGenres', 'admMovies', 'movies']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(true);
