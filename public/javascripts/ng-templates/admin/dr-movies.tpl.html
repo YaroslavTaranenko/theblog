@@ -20,7 +20,7 @@
         </tr>
     </table>
 </div>
-<message>               </message>
+<message></message>
 <button ng-click="movieCtrl.addMovie()" class="btn">Добавить</button>
 <div ng-show="movieCtrl.form.show" class="fon">
     <form>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="row">
                     <label class="col-sm-3 ">Изображение</label>
-                    <input type="text" ng-model="movieCtrl.form.image.name" class="col-sm-8"/>
+                    <input type="text" ng-model="movieCtrl.form.image" class="col-sm-8"/>
                 </div>
                 <div class="row">
                     <span class="col-sm-7">
@@ -55,7 +55,7 @@
 
                     </span>
                     <span class="image-preview col-sm-5">
-                        <img ng-if="!movieCtrl.form.image.name" height="100" ng-src="/images/movies/{{movieCtrl.form.image}}" tip="icon"/>
+                        <img ng-if="!movieCtrl.form.image.name" height="100" ng-src="/images/movies/{{movieCtrl.form.id}}_{{movieCtrl.form.image}}" tip="icon"/>
                         <img ng-if="movieCtrl.form.image.name" height="100" ngf-thumbnail="movieCtrl.form.image"/>
                     </span>
                 </div>

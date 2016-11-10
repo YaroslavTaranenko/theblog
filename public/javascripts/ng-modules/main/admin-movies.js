@@ -116,7 +116,7 @@
                                     ", kinopoisk = " + this.kinopoisk + 
                                     ", description = '" + this.description + "' ";
                         
-                        $http.post('/admin/edit/video', {id: idn, params: query})
+                        $http.post('/dbworker/edit/video', {id: idn, params: query})
                             .then(
                                 function(res){
                                     if(img.name){
@@ -125,7 +125,7 @@
                                     
                                     reload();         
                                 },
-                                function(err){ $scope.popShow(err.status + ": " + err.statusText); }
+                                function(err){ $scope.popShow(err.status + ": " + err.statusText); alert(err.status + ": " + err.statusText); }
                             );
                         this.show = false;
                     };

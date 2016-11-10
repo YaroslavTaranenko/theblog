@@ -16,6 +16,7 @@ ul{
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 2000;
 }
 .pointer{
     cursor: pointer;
@@ -95,6 +96,7 @@ a:hover{
     -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
     -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
     box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
+    z-index: 2000;
 }
 .logo{
     height: 75px;
@@ -197,11 +199,51 @@ a:hover{
 
 }
 /*================================================== movies ==========================================================*/
-.movie-image{
-    height: 150px;
-    width: 100px;
-    box-shadow: 3px 3px 5px rgba(0,0,0,.7);
+.movie-card{
+    box-shadow: 0px 0px 10px rgba(0,0,0,.7);
+    //height: 350px;
+    width: 270px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+    margin: 0 47.5px;
 }
+.img-wrapper{
+    height: 330px;
+    width: 260px;
+    //box-shadow: 0px 0px 7px rgba(0,0,0,.7);
+    margin: 0 auto;
+    display: block;
+}
+.movie-image{
+    height: 330px;
+    width: 260px;
+    z-index: 100;
+}
+.movie-properties{
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    background-color: #3c3c3c;
+    color: #fff;
+    z-index: 9999;
+    position: absolute;
+    width: 250px;
 
-
+    right: 90%;
+    top: 0;
+    border: 2px solid #fd0;
+}
+.movie-card:hover .movie-properties{
+    opacity: 1;
+    pointer-events: default;
+}
+.movie-title{
+    font-weight:bold;
+    text-align: center;
+    font-size: 16px;
+}
 
