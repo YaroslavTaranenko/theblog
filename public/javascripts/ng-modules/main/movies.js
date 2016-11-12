@@ -18,8 +18,8 @@ app.controller('movieCtrl', function($http, $scope){
 
 app.directive('movieCard', function(){
     return{
-        restrict: "E",
-        scope: {movie: '='},
-        template: ''
+        restrict: "EA",
+        scope: {m: '=movie'},
+        templateUrl: '/javascripts/ng-templates/main/movie-card.tpl.html'
     };
 });

@@ -2,7 +2,7 @@
  * Created by yaroslav on 11/5/16.
  */
 'use strict';
-var app = angular.module('MyApp', ['main.templates', 'ngAnimate', 'ngRoute', 'ui.router', 'admActors',
+var app = angular.module('MyApp', ['main.templates', 'messages','ngRoute', 'ui.router', 'admActors',
     'admGenres', 'admMovies', 'movies']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider){
@@ -397,7 +397,7 @@ app.directive('updateTitle', ['$rootScope', '$timeout',
                                     ", kinopoisk = " + this.kinopoisk + 
                                     ", description = '" + this.description + "' ";
                         
-                        $http.post('/admin/edit/video', {id: idn, params: query})
+                        $http.post('/dbworker/edit/video', {id: idn, params: query})
                             .then(
                                 function(res){
                                     if(img.name){
@@ -406,7 +406,7 @@ app.directive('updateTitle', ['$rootScope', '$timeout',
                                     
                                     reload();         
                                 },
-                                function(err){ $scope.popShow(err.status + ": " + err.statusText); }
+                                function(err){ $scope.popShow(err.status + ": " + err.statusText); alert(err.status + ": " + err.statusText); }
                             );
                         this.show = false;
                     };
@@ -472,11 +472,11 @@ app.controller('movieCtrl', function($http, $scope){
 
 app.directive('movieCard', function(){
     return{
-        restrict: "E",
-        scope: {movie: '='},
-        template: ''
+        restrict: "EA",
+        scope: {m: '=movie'},
+        templateUrl: '/javascripts/ng-templates/main/movie-card.tpl.html'
     };
-});;angular.module('main.templates', ['javascripts/ng-templates/main/app.tpl.html', 'javascripts/ng-templates/main/blog.tpl.html', 'javascripts/ng-templates/main/index.tpl.html', 'javascripts/ng-templates/main/portfolio.tpl.html', 'javascripts/ng-templates/main/resume.tpl.html', 'javascripts/ng-templates/main/video.tpl.html']);
+});;angular.module('main.templates', ['javascripts/ng-templates/main/app.tpl.html', 'javascripts/ng-templates/main/blog.tpl.html', 'javascripts/ng-templates/main/index.tpl.html', 'javascripts/ng-templates/main/movie-card.tpl.html', 'javascripts/ng-templates/main/portfolio.tpl.html', 'javascripts/ng-templates/main/resume.tpl.html', 'javascripts/ng-templates/main/video.tpl.html']);
 
 angular.module("javascripts/ng-templates/main/app.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("javascripts/ng-templates/main/app.tpl.html",
@@ -527,6 +527,24 @@ angular.module("javascripts/ng-templates/main/index.tpl.html", []).run(["$templa
     "<h1>Home</h1>");
 }]);
 
+angular.module("javascripts/ng-templates/main/movie-card.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("javascripts/ng-templates/main/movie-card.tpl.html",
+    "<div class=\"movie-card\">\n" +
+    "    <div class=\"img-wrapper\">\n" +
+    "        <img ng-src=\"/images/movies/{{m.id}}_{{m.image}}\" class=\"movie-image\" />\n" +
+    "    </div>\n" +
+    "    <div style=\"clear: both;\"></div>\n" +
+    "    <div class=\"movie-title\">{{m.title}} ({{m.year}})</div>\n" +
+    "    <div class=\"movie-properties\">\n" +
+    "        <div class=\"movie-prop\">Страна: {{m.country}}</div>\n" +
+    "        <div class=\"movie-prop\">Режисер: {{m.director}}</div>\n" +
+    "        <div class=\"movie-rating\">IMDB: {{m.imdb}}</div>\n" +
+    "        <div class=\"movie-rating\">Kinopoisk: {{m.kinopoisk}}</div>\n" +
+    "        <div class=\"movie-desc\">{{m.description}}</div>\n" +
+    "    </div>\n" +
+    "</div>");
+}]);
+
 angular.module("javascripts/ng-templates/main/portfolio.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("javascripts/ng-templates/main/portfolio.tpl.html",
     "<h1>Portfolio</h1>");
@@ -544,20 +562,7 @@ angular.module("javascripts/ng-templates/main/video.tpl.html", []).run(["$templa
     "        <h1>Video</h1>\n" +
     "    </row>\n" +
     "    <div id=\"movie-catalog\">\n" +
-    "        <div class=\"row\" ng-repeat=\"m in movies\">\n" +
-    "            <div class=\"col-sm-2\">\n" +
-    "                <img ng-src=\"m.image\" class=\"movie-image\" />\n" +
-    "            </div>\n" +
-    "            <div class=\"col-sm-10\">\n" +
-    "                <div class=\"movie-title\">{{m.title}}</div>\n" +
-    "                <div class=\"movie-prop\">{{m.year}}</div>\n" +
-    "                <div class=\"movie-prop\">{{m.country}}</div>\n" +
-    "                <div class=\"movie-prop\">{{m.director}}</div>\n" +
-    "                <div class=\"movie-rating\">{{m.imdb}}</div>\n" +
-    "                <div class=\"movie-rating\">{{m.kinopoisk}}</div>\n" +
-    "                <div class=\"movie-desc\">{{m.description}}</div>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
+    "        <movie-card ng-repeat=\"m in movies\" movie=\"m\" style=\"z-index: {{1000 - $index}}\"></movie-card>\n" +
     "    </div>\n" +
     "\n" +
     "</div>\n" +

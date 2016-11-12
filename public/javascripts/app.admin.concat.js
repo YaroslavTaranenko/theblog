@@ -162,7 +162,7 @@ angular.module("javascripts/ng-templates/admin/dr-movies.tpl.html", []).run(["$t
     "        </tr>\n" +
     "    </table>\n" +
     "</div>\n" +
-    "<message>               </message>\n" +
+    "<message></message>\n" +
     "<button ng-click=\"movieCtrl.addMovie()\" class=\"btn\">Добавить</button>\n" +
     "<div ng-show=\"movieCtrl.form.show\" class=\"fon\">\n" +
     "    <form>\n" +
@@ -187,7 +187,7 @@ angular.module("javascripts/ng-templates/admin/dr-movies.tpl.html", []).run(["$t
     "                </div>\n" +
     "                <div class=\"row\">\n" +
     "                    <label class=\"col-sm-3 \">Изображение</label>\n" +
-    "                    <input type=\"text\" ng-model=\"movieCtrl.form.image.name\" class=\"col-sm-8\"/>\n" +
+    "                    <input type=\"text\" ng-model=\"movieCtrl.form.image\" class=\"col-sm-8\"/>\n" +
     "                </div>\n" +
     "                <div class=\"row\">\n" +
     "                    <span class=\"col-sm-7\">\n" +
@@ -197,7 +197,7 @@ angular.module("javascripts/ng-templates/admin/dr-movies.tpl.html", []).run(["$t
     "\n" +
     "                    </span>\n" +
     "                    <span class=\"image-preview col-sm-5\">\n" +
-    "                        <img ng-if=\"!movieCtrl.form.image.name\" height=\"100\" ng-src=\"/images/movies/{{movieCtrl.form.image}}\" tip=\"icon\"/>\n" +
+    "                        <img ng-if=\"!movieCtrl.form.image.name\" height=\"100\" ng-src=\"/images/movies/{{movieCtrl.form.id}}_{{movieCtrl.form.image}}\" tip=\"icon\"/>\n" +
     "                        <img ng-if=\"movieCtrl.form.image.name\" height=\"100\" ngf-thumbnail=\"movieCtrl.form.image\"/>\n" +
     "                    </span>\n" +
     "                </div>\n" +

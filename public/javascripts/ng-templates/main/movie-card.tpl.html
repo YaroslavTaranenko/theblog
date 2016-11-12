@@ -1,0 +1,14 @@
+<div class="movie-card">
+    <div class="img-wrapper">
+        <img ng-src="/images/movies/{{m.id}}_{{m.image}}" class="movie-image" />
+    </div>
+    <div style="clear: both;"></div>
+    <div class="movie-title">{{m.title}} ({{m.year}})</div>
+    <div class="movie-properties">
+        <div class="movie-prop">Страна: {{m.country}}</div>
+        <div class="movie-prop">Режисер: {{m.director}}</div>
+        <div class="movie-rating">IMDB: {{m.imdb}}</div>
+        <div class="movie-rating">Kinopoisk: {{m.kinopoisk}}</div>
+        <div class="movie-desc">{{m.description}}</div>
+    </div>
+</div>
