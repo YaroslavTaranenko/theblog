@@ -227,19 +227,21 @@ a:hover{
     display: block;
     opacity: 0;
     pointer-events: none;
-    background-color: #3c3c3c;
+    background-color: rgba(0,0,0, .8);
     color: #fff;
     z-index: 9999;
     position: absolute;
     width: 250px;
 
-    right: 90%;
+    left: 0;
     top: 0;
-    border: 2px solid #fd0;
+    border: 2px solid #da0;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
 }
 .movie-card:hover .movie-properties{
     opacity: 1;
-    pointer-events: default;
+    pointer-events: auto;
 }
 .movie-title{
     font-weight:bold;

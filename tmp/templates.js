@@ -58,13 +58,14 @@ angular.module("javascripts/ng-templates/main/movie-card.tpl.html", []).run(["$t
     "    <div style=\"clear: both;\"></div>\n" +
     "    <div class=\"movie-title\">{{m.title}} ({{m.year}})</div>\n" +
     "    <div class=\"movie-properties\">\n" +
-    "        <div class=\"movie-prop\">Страна: {{m.country}}</div>\n" +
-    "        <div class=\"movie-prop\">Режисер: {{m.director}}</div>\n" +
-    "        <div class=\"movie-rating\">IMDB: {{m.imdb}}</div>\n" +
-    "        <div class=\"movie-rating\">Kinopoisk: {{m.kinopoisk}}</div>\n" +
-    "        <div class=\"movie-desc\">{{m.description}}</div>\n" +
+    "        <div class=\"movie-prop\"><b>Страна: </b>{{m.country}}</div>\n" +
+    "        <div class=\"movie-prop\"><b>Режисер: </b>{{m.director}}</div>\n" +
+    "        <div class=\"movie-rating\"><b>IMDB: </b>{{m.imdb}}</div>\n" +
+    "        <div class=\"movie-rating\"><b>Kinopoisk: </b>{{m.kinopoisk}}</div>\n" +
+    "        <div class=\"movie-desc\">{{m.description}}<a href=\"#\">asdf</a></div>\n" +
     "    </div>\n" +
-    "</div>");
+    "</div>\n" +
+    "");
 }]);
 
 angular.module("javascripts/ng-templates/main/portfolio.tpl.html", []).run(["$templateCache", function($templateCache) {
