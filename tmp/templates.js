@@ -85,7 +85,7 @@ angular.module("javascripts/ng-templates/main/video.tpl.html", []).run(["$templa
     "        <h1>Video</h1>\n" +
     "    </row>\n" +
     "    <div id=\"movie-catalog\">\n" +
-    "        <movie-card ng-repeat=\"m in movies\" movie=\"m\" style=\"z-index: {{1000 - $index}}\"></movie-card>\n" +
+    "        <movie-card ng-repeat=\"m in movies\" movie=\"m\" style=\"z-index: {{1000 - $index}}; margin-bottom: 50px; display: inline-block;\"></movie-card>\n" +
     "    </div>\n" +
     "\n" +
     "</div>\n" +

@@ -150,7 +150,7 @@ angular.module("javascripts/ng-templates/admin/dr-movies.tpl.html", []).run(["$t
     "            <th class=\"col-sm-1\">Kinopoisk</th>\n" +
     "            <th class=\"col-sm-2\">Actions</th>\n" +
     "        </tr>\n" +
-    "        <tr ng-repeat=\"m in movies\">\n" +
+    "        <tr ng-repeat=\"m in movies\" class=\"\">\n" +
     "            <td>{{m.id}}</td>\n" +
     "            <td>{{m.title}}</td>\n" +
     "            <td>{{m.imdb}}</td>\n" +
