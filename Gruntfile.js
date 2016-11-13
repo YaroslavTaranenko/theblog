@@ -33,6 +33,10 @@ module.exports = function (grunt) {
                     livereload: 8082
                 }
             },
+            compass:{
+                files: ['./public/stylesheets/*.scss'],
+                tasks: ['compass']
+            },
             html2jsMain: {
                 files: ['./public/javascripts/ng-templates/main/*.tpl.html', './public/javascripts/ng-templates/main/*.jade'],
                 tasks: ['html2js:main']
@@ -89,6 +93,14 @@ module.exports = function (grunt) {
             }
             
         },
+        compass: {
+            dev: {
+                options: {
+                    sassDir: ['public/stylesheets'],
+                    cssDir: ['public/stylesheets']
+                }
+            }
+        },
         html2js: {
             main: {
                 options: {
@@ -125,6 +137,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-compass');
+
     grunt.loadNpmTasks('grunt-html2js');
 
     //grunt.registerTask('default', ['concurrent']);

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAMA,CAAC;EACC,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,CAAC;EACT,IAAI,EAAE,kDAAkD;EACxD,UAAU,EAAE,UAAU;EATtB,qBAAqB,EADO,IAAI;EAEhC,kBAAkB,EAFU,IAAI;EAGhC,aAAa,EAHe,IAAI",
+"sources": ["snippets.scss"],
+"names": [],
+"file": "snippets.css"
+}

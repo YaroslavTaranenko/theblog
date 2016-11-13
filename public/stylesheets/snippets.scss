@@ -1,0 +1,13 @@
+@mixin border-radius($amount: 15px){
+  -webkit-border-radius: $amount;
+  -moz-border-radius: $amount;
+  border-radius: $amount;;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  @include border-radius();
+}
