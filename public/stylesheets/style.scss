@@ -1,10 +1,7 @@
-/* line 1, style.scss */
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
-/* line 4, style.scss */
-.top-header {
+.top-header{
   height: 30px;
   width: 100%;
   background-color: #3bbb90;
@@ -15,31 +12,21 @@ body {
   top: 0;
   z-index: 2000;
 }
-
-/* line 15, style.scss */
-.pointer {
+.pointer{
   cursor: pointer;
 }
-
-/* line 18, style.scss */
-.red {
+.red{
   color: red;
 }
-
-/* line 21, style.scss */
-.green {
+.green{
   color: #4dc71f;
 }
-
-/* line 24, style.scss */
-.top-header-item {
-  display: inline-block;
+.top-header-item{
+  display:inline-block;
   height: 30px;
   line-height: 30px;
   padding: 0 5px;
 }
-
-/* line 30, style.scss */
 a {
   color: #000;
   text-decoration: none;
