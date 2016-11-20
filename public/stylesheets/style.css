@@ -40,7 +40,229 @@ body {
 }
 
 /* line 30, style.scss */
+ul {
+  list-style: none;
+}
+
+/* line 33, style.scss */
+table {
+  width: 100%;
+}
+
+/* line 37, style.scss */
+th {
+  background-color: #5cb85c;
+  color: #fff;
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+/* line 43, style.scss */
+td {
+  padding: 5px;
+}
+
+/* line 47, style.scss */
+tr:hover {
+  background-color: #abef98;
+}
+
+/* line 50, style.scss */
+a:hover {
+  color: cyan;
+}
+
+/* line 53, style.scss */
+.right {
+  float: right;
+}
+
+/* line 56, style.scss */
+.left {
+  float: left;
+}
+
+/* line 59, style.scss */
 a {
   color: #000;
   text-decoration: none;
+}
+
+/* line 63, style.scss */
+.top-header a {
+  color: #fff;
+}
+
+/* line 66, style.scss */
+.top-header a:hover {
+  color: cyan;
+}
+
+/* line 69, style.scss */
+.top-header-menu li {
+  height: 30px;
+  margin: 0 5px;
+}
+
+/* line 73, style.scss */
+.top-header-menu li a {
+  line-height: 30px;
+}
+
+/* line 76, style.scss */
+#header {
+  position: fixed;
+  height: 75px;
+  width: 100%;
+  top: 30px;
+  left: 0;
+  background-color: #fff;
+  -webkit-transition-property: height;
+  -moz-transition-property: height;
+  -ms-transition-property: height;
+  -o-transition-property: height;
+  transition-property: height;
+  -webkit-transition-duration: 500ms;
+  -moz-transition-duration: 500ms;
+  -ms-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  transition-duration: 500ms;
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+}
+/* line 97, style.scss */
+#header .logo {
+  height: 75px;
+  width: 225px;
+  display: inline-block;
+  /*border: 1px solid black;*/
+  background: url(../images/Logo.png) no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain;
+  -webkit-transition: height 0.5s, width 0.5s;
+  -moz-transition: height 0.5s, width 0.5s;
+  -ms-transition: height 0.5s, width 0.5s;
+  -o-transition: height 0.5s, width 0.5s;
+  transition: height 0.5s, width 0.5s;
+}
+/* line 112, style.scss */
+#header .header-menu {
+  width: 550px;
+  text-align: right;
+}
+/* line 116, style.scss */
+#header .header-menu ul {
+  margin: 30px 0 0 0;
+  -webkit-transition-property: margin;
+  -moz-transition-property: margin;
+  -ms-transition-property: margin;
+  -o-transition-property: margin;
+  transition-property: margin;
+  -webkit-transition-duration: 500ms;
+  -moz-transition-duration: 500ms;
+  -ms-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+/* line 129, style.scss */
+#header .header-menu ul li {
+  margin: 0 5px;
+  height: 25px;
+  text-align: center;
+  display: inline-block;
+}
+/* line 134, style.scss */
+#header .header-menu ul li a {
+  font-size: 16px;
+  line-height: 25px;
+  color: #000;
+}
+/* line 139, style.scss */
+#header .header-menu ul li a:hover {
+  color: cyan;
+}
+
+/* line 147, style.scss */
+#header.min {
+  height: 50px;
+}
+
+/* line 150, style.scss */
+.min .logo {
+  height: 50px;
+  width: 150px;
+}
+
+/* line 155, style.scss */
+.min .header-menu > ul {
+  margin: 15px 0 0 0;
+}
+
+/* line 159, style.scss */
+#main-search-form {
+  margin: 30px 0 0 0;
+  text-align: left;
+  -webkit-transition: margin 0.5s;
+  -moz-transition: margin 0.5s;
+  -ms-transition: margin 0.5s;
+  -o-transition: margin 0.5s;
+  transition: margin 0.5s;
+}
+
+/* line 169, style.scss */
+.main-search-field {
+  height: 30px;
+  width: 500px;
+  padding: 0 5px;
+  border-radius: 7px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* line 178, style.scss */
+.close-search {
+  margin: 5px 0 0 0;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+/* line 192, style.scss */
+.min #main-search-form {
+  margin: 5px 0 0 0;
+}
+
+/* line 195, style.scss */
+.subheader {
+  height: 200px;
+  background: url(../images/green.png) repeat-x;
+  margin: 105px 0 0 0;
+}
+
+/*========================== blog ============================*/
+/* line 203, style.scss */
+.article {
+  border: 1px solid black;
+  padding: 5px;
+}
+/* line 206, style.scss */
+.article .title {
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+}
+/* line 213, style.scss */
+.article .info {
+  display: inline-block;
+  float: right;
 }

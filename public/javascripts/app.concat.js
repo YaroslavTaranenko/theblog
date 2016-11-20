@@ -519,7 +519,32 @@ angular.module("javascripts/ng-templates/main/app.tpl.html", []).run(["$template
 
 angular.module("javascripts/ng-templates/main/blog.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("javascripts/ng-templates/main/blog.tpl.html",
-    "<h1>Blog</h1>");
+    "<div class=\"container\">\n" +
+    "    <h1>Blog</h1>\n" +
+    "\n" +
+    "    <div class=\"row\">\n" +
+    "        <div class=\"col-lg-10 col-md-10 col-sm-10\">\n" +
+    "            <div class=\"article\">\n" +
+    "                <div class=\"title\">Exsample article #1</div>\n" +
+    "                <div class=\"info\">\n" +
+    "                        <span>author: admin</span>\n" +
+    "                        <span>date: 14.11.2016</span>\n" +
+    "                </div>\n" +
+    "                <div class=\"content\">\n" +
+    "\n" +
+    "                    <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>\n" +
+    "\n" +
+    "                    <p>По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.</p>\n" +
+    "\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"col-lg-2 col-md-2 col-sm-2\">\n" +
+    "\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "");
 }]);
 
 angular.module("javascripts/ng-templates/main/index.tpl.html", []).run(["$templateCache", function($templateCache) {
