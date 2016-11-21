@@ -3,7 +3,7 @@
  */
 'use strict';
 var app = angular.module('MyApp', ['main.templates', 'messages','ngRoute', 'ui.router', 'admActors',
-    'admGenres', 'admMovies', 'movies']);
+    'admGenres', 'admMovies', 'movies', 'vidgets']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(true);

@@ -1,3 +1,9 @@
+@mixin shadow($x, $y, $blur, $color: rgba(0,0,0,.7)){
+  -webkit-box-shadow: $x $y $blur $color;
+  -moz-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -201,17 +207,51 @@ a {
 
 /*========================== blog ============================*/
 .article{
-  border: 1px solid black;
+  width: 47%;
+  height: 370px;
+  display: inline-block;
+  @include shadow(0px, 5px, 10px);
   padding: 5px;
+  margin: 0 10px;
+  .image{
+    width: 100%;
+    display: block;
+  }
   .title{
+    text-align: left;
     font:{
       size: 16px;
       weight: bold;
     }
-    display: inline-block;
+    display: block;
   }
   .info{
-    display: inline-block;
-    float: right;
+    display: block;
+    text-align: right;
+    margin: 10px 0 0 0 ;
+    padding: 5px 0 0 0;
+    background-color: #ddd;
+    height: 30px;
+    .date{
+      text-align: left;
+    }
+    .tags{
+      ul{
+        li{
+          display: inline;
+          margin: 0 0 0 5px;
+          a{
+            color: #761c19;
+          }
+        }
+      }
+    }
+  }
+  .content{
+    display: block;
+    text-overflow: ellipsis;
+    height: 50px;
+    overflow: hidden;
+    text-align: justify;
   }
 }
