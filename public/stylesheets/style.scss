@@ -3,6 +3,11 @@
   -moz-box-shadow: $x $y $blur $color;
   box-shadow: $x $y $blur $color;
 }
+@mixin border-radius($amount: 10px){
+  -webkit-border-radius:$amount;
+  -moz-border-radius:$amount;
+  border-radius:$amount;
+}
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -153,9 +158,11 @@ a {
 #header.min{
   height: 50px;
 }
-.min .logo{
-  height: 50px;
-  width: 150px;
+.min {
+  .logo{
+    height: 50px;
+    width: 150px;
+  }
 }
 
 .min .header-menu > ul{
@@ -207,12 +214,12 @@ a {
 
 /*========================== blog ============================*/
 .article{
-  width: 47%;
+  width: 49%;
   height: 370px;
   display: inline-block;
   @include shadow(0px, 5px, 10px);
   padding: 5px;
-  margin: 0 10px;
+  margin: 0 0 10px 0;
   .image{
     width: 100%;
     display: block;
@@ -250,8 +257,106 @@ a {
   .content{
     display: block;
     text-overflow: ellipsis;
-    height: 50px;
+    height: 70px;
     overflow: hidden;
     text-align: justify;
   }
 }
+.article:nth-child(2n){
+  margin-left: 2%;
+}
+
+/*===============================================  widgets  ==================================================*/
+.widget{
+  width: 100%;
+  border: 0px solid black;
+  ul{
+    margin: 0 0 10px 0;
+    padding: 0;
+  }
+  .tabs{
+    ul{
+      li{
+        display: inline-block;
+        cursor: pointer;
+        border: 1px solid #9d9d9d;
+        height: 30px;
+        @include border-radius(5px);
+        line-height: 30px;
+        padding: 0 5px;
+      }
+      .tab-active{
+        background-color: #9acfea;
+      }
+    }
+  }
+  .popular{
+    height: 50px;
+    font-size: 11px;
+    border: 1px solid #8c8c8c;
+    margin: 0 0 5px 0;
+    .image{
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+
+    }
+    span{
+      vertical-align: top;
+      width: calc(100% - 55px);
+      display: inline-block;
+      .title{
+        display: inline-block;
+        height: 13px;
+        font-weight: bold;
+      }
+      .content{
+        display: inline-block;
+        height: 35px;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+      }
+    }
+  }
+  .comment{
+    height: 50px;
+    margin: 0 0 5px 0;
+    .image{
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+
+    }
+    .text{
+      display: inline-block;
+
+    }
+  }
+  .tag{
+    background-color: #9d9d9d;
+    display: inline-block;
+    padding: 0 5px 0 5px;
+    height: 30px;
+    border-radius: 15px 3px 3px 15px;
+    margin: 0 5px 5px 0;
+    i{
+      font-size: 8px;
+      color: #fff;
+      line-height: 30px;
+    }
+    a{
+      color: #0f0f0f;
+      line-height: 30px;
+      font-weight: bold;
+    }
+  }
+
+
+}
+
+
+
+
+

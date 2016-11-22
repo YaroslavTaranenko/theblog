@@ -45,53 +45,24 @@ angular.module("javascripts/ng-templates/main/blog.tpl.html", []).run(["$templat
     "    <h1>Blog</h1>\n" +
     "\n" +
     "    <div class=\"row\" >\n" +
-    "        <div class=\"col-lg-10 col-md-10 col-sm-10\" style=\"text-align: center\">\n" +
-    "            <div class=\"article\">\n" +
+    "        <div class=\"col-lg-9 col-md-9 col-sm-9\" style=\"border: 1px solid black\">\n" +
+    "            <div class=\"article\" ng-repeat=\"a in articles\">\n" +
     "                <img class=\"image\" ng-src=\"{{a.img || '/images/no-image-available.png'}}\" />\n" +
-    "                <div class=\"title\">Exsample article #1</div>\n" +
+    "                <div class=\"title\">{{a.title}}</div>\n" +
     "\n" +
-    "                <div class=\"content\">\n" +
-    "\n" +
-    "                    <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>\n" +
-    "\n" +
-    "                    <p>По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.</p>\n" +
-    "\n" +
-    "                </div>\n" +
+    "                <p class=\"content\" ng-bind-html=\"a.text\"></p>\n" +
     "                <div class=\"info\">\n" +
-    "                    <span class=\"date col-sm-4 col-lg-4 col-md-4\">14.11.2016</span>\n" +
+    "                    <span class=\"date col-sm-4 col-lg-4 col-md-4\">{{a.date}}</span>\n" +
     "                    <span class=\"tags\">\n" +
     "                        <ul>\n" +
-    "                            <li><a href>All</a></li>\n" +
-    "                            <li><a href>Featured</a></li>\n" +
+    "                            <li ng-repeat=\"tg in a.tags\"><a href>{{tg.title}}</a></li>\n" +
     "                        </ul>\n" +
     "                    </span>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "            <div class=\"article\">\n" +
-    "                <img class=\"image\" ng-src=\"{{a.img || '/images/no-image-available.png'}}\" />\n" +
-    "                <div class=\"title\">Exsample article #2</div>\n" +
     "\n" +
-    "                <div class=\"content\">\n" +
-    "\n" +
-    "                    <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>\n" +
-    "\n" +
-    "                    <p>По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.</p>\n" +
-    "\n" +
-    "                </div>\n" +
-    "\n" +
-    "                <div class=\"info\">\n" +
-    "                    <span class=\"date col-sm-4 col-lg-4 col-md-4\">21.11.2016</span>\n" +
-    "                    <span class=\"tags\">\n" +
-    "                        <ul>\n" +
-    "                            <li><a href>All</a></li>\n" +
-    "                            <li><a href>Featured</a></li>\n" +
-    "                            <li><a href>Movies</a></li>\n" +
-    "                        </ul>\n" +
-    "                    </span>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
     "        </div>\n" +
-    "        <div class=\"col-lg-2 col-md-2 col-sm-2\">\n" +
+    "        <div class=\"col-lg-3 col-md-3 col-sm-3\">\n" +
     "            <div class=\"widget\">\n" +
     "                <popular-vidgets></popular-vidgets>\n" +
     "            </div>\n" +
@@ -130,32 +101,49 @@ angular.module("javascripts/ng-templates/main/popular-vidgets.tpl.html", []).run
     "<div class=\"tabs-wrap\">\n" +
     "    <div class=\"tabs\">\n" +
     "        <ul>\n" +
-    "            <li ng-click=\"pvCtrl.setTab('popular')\">Popular</li>\n" +
-    "            <li ng-click=\"pvCtrl.setTab('comments')\">Comments</li>\n" +
-    "            <li ng-click=\"pvCtrl.setTab('tags')\">Tags</li>\n" +
+    "            <li ng-click=\"pvCtrl.setTab('popular')\" ng-class=\"{'tab-active': pvCtrl.isTab('popular')}\">Popular</li>\n" +
+    "            <li ng-click=\"pvCtrl.setTab('comments')\" ng-class=\"{'tab-active': pvCtrl.isTab('comments')}\">Comments</li>\n" +
+    "            <li ng-click=\"pvCtrl.setTab('tags')\" ng-class=\"{'tab-active': pvCtrl.isTab('tags')}\">Tags</li>\n" +
     "        </ul>\n" +
     "    </div>\n" +
     "    <div class=\"tab-container\" ng-show=\"pvCtrl.isTab('popular')\">\n" +
     "        <ul>\n" +
-    "            <li>\n" +
-    "                <div class=\"popular\">\n" +
-    "                    <div class=\"title\">Popular #1</div>\n" +
-    "                    <div class=\"content\">По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недо</div>\n" +
-    "                </div>\n" +
+    "            <li class=\"popular\">\n" +
+    "\n" +
+    "                    <img class=\"image\" ng-src=\"{{p.img || '/images/no-image-available.png'}}\" />\n" +
+    "                    <span>\n" +
+    "                        <div class=\"title\">Popular #1</div>\n" +
+    "                        <div class=\"content\">По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недо</div>\n" +
+    "                    </span>\n" +
+    "\n" +
     "            </li>\n" +
-    "            <li>\n" +
-    "                <div class=\"popular\">\n" +
-    "                    <div class=\"title\">Popular #2</div>\n" +
-    "                    <div class=\"content\">По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недо</div>\n" +
-    "                </div>\n" +
+    "            <li class=\"popular\">\n" +
+    "\n" +
+    "                    <img class=\"image\" ng-src=\"{{p.img || '/images/no-image-available.png'}}\" />\n" +
+    "                    <span>\n" +
+    "                        <div class=\"title\">Popular #2</div>\n" +
+    "                        <div class=\"content\">По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недо</div>\n" +
+    "                    </span>\n" +
+    "\n" +
     "            </li>\n" +
     "        </ul>\n" +
     "    </div>\n" +
     "    <div class=\"tab-container\" ng-show=\"pvCtrl.isTab('comments')\">\n" +
+    "        <ul>\n" +
+    "            <li class=\"comment\" ng-repeat=\"c in lastComments\">\n" +
     "\n" +
+    "                <img class=\"image\" ng-src=\"{{c.img || '/images/no-image-available.png'}}\" />\n" +
+    "\n" +
+    "                <div class=\"text\">{{c.author}} on {{c.article}}</div>\n" +
+    "            </li>\n" +
+    "\n" +
+    "        </ul>\n" +
     "    </div>\n" +
     "    <div class=\"tab-container\" ng-show=\"pvCtrl.isTab('tags')\">\n" +
-    "\n" +
+    "        <ul>\n" +
+    "            <li class=\"tag\" ng-repeat=\"t in tags\"><i class=\"fa fa-circle\" aria-hidden=\"true\"></i><a href>\n" +
+    "                {{t.title}}</a></li>\n" +
+    "        </ul>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");

@@ -1,31 +1,48 @@
 <div class="tabs-wrap">
     <div class="tabs">
         <ul>
-            <li ng-click="pvCtrl.setTab('popular')">Popular</li>
-            <li ng-click="pvCtrl.setTab('comments')">Comments</li>
-            <li ng-click="pvCtrl.setTab('tags')">Tags</li>
+            <li ng-click="pvCtrl.setTab('popular')" ng-class="{'tab-active': pvCtrl.isTab('popular')}">Popular</li>
+            <li ng-click="pvCtrl.setTab('comments')" ng-class="{'tab-active': pvCtrl.isTab('comments')}">Comments</li>
+            <li ng-click="pvCtrl.setTab('tags')" ng-class="{'tab-active': pvCtrl.isTab('tags')}">Tags</li>
         </ul>
     </div>
     <div class="tab-container" ng-show="pvCtrl.isTab('popular')">
         <ul>
-            <li>
-                <div class="popular">
-                    <div class="title">Popular #1</div>
-                    <div class="content">По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недо</div>
-                </div>
+            <li class="popular">
+
+                    <img class="image" ng-src="{{p.img || '/images/no-image-available.png'}}" />
+                    <span>
+                        <div class="title">Popular #1</div>
+                        <div class="content">По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недо</div>
+                    </span>
+
             </li>
-            <li>
-                <div class="popular">
-                    <div class="title">Popular #2</div>
-                    <div class="content">По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недо</div>
-                </div>
+            <li class="popular">
+
+                    <img class="image" ng-src="{{p.img || '/images/no-image-available.png'}}" />
+                    <span>
+                        <div class="title">Popular #2</div>
+                        <div class="content">По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недо</div>
+                    </span>
+
             </li>
         </ul>
     </div>
     <div class="tab-container" ng-show="pvCtrl.isTab('comments')">
+        <ul>
+            <li class="comment" ng-repeat="c in lastComments">
 
+                <img class="image" ng-src="{{c.img || '/images/no-image-available.png'}}" />
+
+                <div class="text">{{c.author}} on {{c.article}}</div>
+            </li>
+
+        </ul>
     </div>
     <div class="tab-container" ng-show="pvCtrl.isTab('tags')">
-
+        <ul>
+            <li class="tag" ng-repeat="t in tags"><i class="fa fa-circle" aria-hidden="true"></i><a href>
+                {{t.title}}</a></li>
+        </ul>
     </div>
 </div>
